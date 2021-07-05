@@ -4,7 +4,7 @@ class Paciente extends Component{
     constructor(props){
         super(props);
         this.state = {
-            listaConsultas : []
+            listaConsultas : [{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 05/07, hora : 17}]
         }
     }
 
@@ -29,6 +29,22 @@ class Paciente extends Component{
                                     <th>Hora</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                {
+                                    this.state.listaConsultas.map( (consulta) => {
+                                        return (
+                                            <tr key={consulta.idConsultas}>
+                                                <td>{consulta.idConsultas}</td>
+                                                <td>{consulta.paciente}</td>
+                                                <td>{consulta.medico}</td>
+                                                <td>{consulta.especialidade}</td>
+                                                <td>{consulta.data}</td>
+                                                <td>{consulta.hora}</td>
+                                            </tr>
+                                        )
+                                    } )
+                                }
+                            </tbody>
                         </table>
                     </section>
                 </main>

@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 
 import './index.css';
 
 import App from './pages/login/App';
 import Adm from './pages/adm/adm';
 import Medico from './pages/medico/medico';
-import Paciente from './pages/paciente';
+import Paciente from './pages/paciente/paciente';
+import NotFound from './pages/notFound/notfound';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -19,6 +20,8 @@ const routing = (
         <Route path="/Adm" component={Adm} />
         <Route path="/Medico" component={Medico} />
         <Route path="/Paciente" component={Paciente} />
+        <Route exact path="/NotFound" component={NotFound} />
+        <Redirect to = "/NotFound" />
       </Switch>
     </div>
   </Router>
