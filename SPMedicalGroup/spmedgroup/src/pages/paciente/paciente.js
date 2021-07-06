@@ -1,16 +1,44 @@
-import { Component } from 'react';
+import { React, Component } from 'react';
+import axios from 'axios';
 
-class Paciente extends Component{
+export default class Paciente extends Component{
     constructor(props){
         super(props);
         this.state = {
-            listaConsultas : [{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 05/07, hora : 17}]
+            idConsultas : '',
+            paciente : '',
+            medico : '',
+            especialidade : '',
+            data : '',
+            hora : '',
+            isLoading : false
+            //{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 0507, hora : 17}
         }
     }
 
-    componentDidMount(){
+    listarConsultas = () => {
+        axios('http://localhost:5000/api/pacientes', {
+            headers : {
+                'Authorization' : 'Bearer' + localStorage.getItem('usuario-login')
+            }
+        })
+        .then (resposta => {
+            if(resposta.status === 200) {
+                this.setState({ listarConsultas : resposta.data })
+                console.log(this.state.listarConsultas)
+            }
+        })
 
+        .catch(erro => console.log(erro))
     }
+
+    componentDidMount(){
+        this.listarConsultas();
+    };
+
+    atualizaStateCampo = (campo) => {
+        this.setState({ [campo.target.name] : campo.target.value })
+    };
 
     render(){
         return(
@@ -18,7 +46,7 @@ class Paciente extends Component{
                 <main>
                     <section>
                         <h1>Lista de Consultas</h1>
-                        <table>
+                        <table style={{ borederCollapse : 'separate', borderSpacing : 30 }}>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -31,7 +59,7 @@ class Paciente extends Component{
                             </thead>
                             <tbody>
                                 {
-                                    this.state.listaConsultas.map( (consulta) => {
+                                    this.state.listarConsultas.map( (consulta) => {
                                         return (
                                             <tr key={consulta.idConsultas}>
                                                 <td>{consulta.idConsultas}</td>
@@ -54,4 +82,4 @@ class Paciente extends Component{
 
 }
 
-export default Paciente;
+//export default Paciente;
