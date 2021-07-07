@@ -91,7 +91,6 @@ export default function ConsultaMedico() {
                 }
             })
             .catch(erro => console.log(erro))
-
     }
 
     return (
@@ -139,12 +138,8 @@ export default function ConsultaMedico() {
                                                     />
                                                 ) : (<td>{consulta.descricaoAtendimento}</td>)
                                         }
-
-
                                         <td id="editar">
-
                                             <div id="btn-acoes">
-
                                                 {/* Habilita o input passando o id da linha e a descricao atual */}
                                                 <buttom onClick={() => emEdicao({ idLinha: consulta.idConsulta, descricaoAtual: consulta.descricaoAtendimento })} >mode_edit_outline</buttom>
 
@@ -153,19 +148,14 @@ export default function ConsultaMedico() {
 
                                                 {/* Cancela a chamada para edição, retornando ao estado inicial*/}
                                                 <buttom onClick={() => cancelarEdicao()} >limpar</buttom>
-
                                             </div>
-
                                         </td>
                                     </tr>
                                 )
                             })
                         }
-
                     </tbody>
-
                 </table>
-
             </section>
             <Rodape />
         </div>
