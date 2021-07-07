@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import '../../assets/css/style.css';
+import Rodape from '../../components/rodape/rodape';
+
+import '../../assets/css/adm.css';
 
 export default function Administrador() {
 
@@ -124,7 +126,7 @@ export default function Administrador() {
     };
 
     return (
-        <div>
+        <div className="banner">
             <header>
                 <h1>Adiministrador
                     <Link to='/'>logout</Link>
@@ -260,6 +262,7 @@ export default function Administrador() {
                     </table>
                 </section>
             </div>
+            <Rodape />
         </div>
 
     )

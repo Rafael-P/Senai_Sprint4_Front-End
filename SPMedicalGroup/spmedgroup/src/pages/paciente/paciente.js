@@ -1,5 +1,9 @@
-import { React, Component } from 'react';
+import { React, Component, useState } from 'react';
 import axios from 'axios';
+
+import Rodape from '../../components/rodape/rodape';
+
+import '../../assets/css/paciente.css'
 
 export default class Paciente extends Component{
     constructor(props){
@@ -14,7 +18,8 @@ export default class Paciente extends Component{
             isLoading : false
             //{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 0507, hora : 17}
         }
-    }
+    };
+
 
     listarConsultas = () => {
         axios('http://localhost:5000/api/Consultas', {
@@ -30,6 +35,15 @@ export default class Paciente extends Component{
         })
 
         .catch(erro => console.log(erro))
+
+        let consulta = {
+            idConsultas : this.state.idConsultas,
+            paciente : this.state.paciente,
+            medico : this.state.medico,
+            especialidade : this.state.especialidade,
+            data : this.state.data,
+            hora : this.state.hora
+        };
     }
 
     componentDidMount(){
@@ -40,9 +54,10 @@ export default class Paciente extends Component{
         this.setState({ [campo.target.name] : campo.target.value })
     };
 
+
     render(){
         return(
-            <div>
+            <div className="banner">
                 <main>
                     <section>
                         <h1>Lista de Consultas</h1>
@@ -76,6 +91,7 @@ export default class Paciente extends Component{
                         </table>
                     </section>
                 </main>
+                <Rodape />
             </div>
         );
     }

@@ -40,14 +40,16 @@ const PermissaoAdm = ({ component : Component  }) => (
 //   />
 // );
 
+
+
 const routing = (
   <Router>
     <div>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/Login" component={Login} />
-        <PermissaoAdm path="/Adm" component={Adm} />
-        <PermissaoAdm path="/Medico" component={Medico} />
+        <Route path="/Adm" component={Adm} /> 
+        <Route path="/Medico" component={Medico} />
         <Route path="/Paciente" component={Paciente} />
         <Route exact path="/NotFound" component={NotFound} />
         <Redirect to = "/NotFound" />

@@ -1,6 +1,8 @@
-import { React, Component } from 'react';
+import { React, Component, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import Rodape from '../../components/rodape/rodape';
 
 import '../../assets/css/medico.css';
 
@@ -93,7 +95,7 @@ export default function ConsultaMedico() {
     }
 
     return (
-        <div>
+        <div className="banner">
             <header>
                 <h1>Médico - Consultas
                     <br />
@@ -165,7 +167,7 @@ export default function ConsultaMedico() {
                 </table>
 
             </section>
-
+            <Rodape />
         </div>
 
     )

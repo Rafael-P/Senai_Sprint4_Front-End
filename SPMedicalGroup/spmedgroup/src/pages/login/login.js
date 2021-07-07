@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { parseJwt, usuarioAutenticado } from '../../services/auth';
@@ -84,7 +84,7 @@ class Login extends Component {
 
     render(){
         return(
-            <div>
+            <div className="banner">
                 <main>
                     <section className="container-login flex">
                         <div className="img__login"><div className="img__overlay"></div></div>
@@ -164,6 +164,7 @@ class Login extends Component {
                         </div>
                     </section>
                 </main>
+                <Rodape />
             </div>
         )
     }
