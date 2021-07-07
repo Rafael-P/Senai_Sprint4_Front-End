@@ -17,7 +17,7 @@ export default class Paciente extends Component{
     }
 
     listarConsultas = () => {
-        axios('http://localhost:5000/api/pacientes', {
+        axios('http://localhost:5000/api/Consultas', {
             headers : {
                 'Authorization' : 'Bearer' + localStorage.getItem('usuario-login')
             }
