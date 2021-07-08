@@ -10,13 +10,12 @@ export default class Paciente extends Component{
         super(props);
         this.state = {
             idConsultas : '',
-            paciente : '',
-            medico : '',
+            idPaciente : '',
+            idMedico : '',
             especialidade : '',
             data : '',
             hora : '',
-            isLoading : false
-            //{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 0507, hora : 17}
+            isLoading : false//{idConsultas : 1, paciente : 'Rafael', medico : 'Will', especialidade : 'nd', data : 0507, hora : 17}
         }
     };
 
@@ -38,8 +37,8 @@ export default class Paciente extends Component{
 
         let consulta = {
             idConsultas : this.state.idConsultas,
-            paciente : this.state.paciente,
-            medico : this.state.medico,
+            paciente : this.state.idPaciente,
+            medico : this.state.idMedico,
             especialidade : this.state.especialidade,
             data : this.state.data,
             hora : this.state.hora
